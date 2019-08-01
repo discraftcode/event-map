@@ -1,0 +1,72 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="container">
+  <!-- <h1>{{ title }}</h1> -->
+  <!-- this creates a google map on the page with the given lat/lng from -->
+  <!-- the component as the initial center of the map: -->
+  <agm-map 
+  [(latitude)]="lat" 
+  [(longitude)]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="false" 
+  (mapClick)="onChosenLocation($event)">
+  <agm-marker-cluster [imagePath]="'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'">
+    
+    <!-- Marker reference: http://kml4earth.appspot.com/icons.html -->
+    <agm-marker 
+    *ngIf="showMarker" 
+    [latitude]="searchLat" 
+    [longitude]="searchLng"
+    [iconUrl]="'http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png'">
+      <agm-info-window>
+        <strong>Lat : {{searchLat}}</strong><br>
+        <strong>Lng: {{searchLng}}</strong>
+      </agm-info-window>
+    </agm-marker>  
+  
+    <agm-marker *ngFor="let e of events; let i = index" 
+    [latitude]="e.latitude" 
+    [longitude]="e.longitude"
+    [markerDraggable]="e.draggable">
+      <agm-info-window>
+        <h1>Event : <a target="_blank" href={{e.mapEventLink}}>{{ e.title }}</a></h1>
+        <strong>Course Park : {{ e.coursePark }}</strong><br>
+        <strong>Date : {{e.eventDate | date:'mediumDate' }}</strong><br>
+        <strong>Time: {{ e.eventDate  | date:'shortTime' }}</strong><br>
+        <strong>Location: {{ e.meetupLocation }}</strong><br>
+        <strong>Lat : {{ e.latitude }}</strong><br>
+        <strong>Lng : {{ e.longitude }}</strong><br>
+      </agm-info-window>
+    </agm-marker>
+  </agm-marker-cluster>
+  </agm-map>
+  <div id="inputsContainer">
+      <!-- <form 
+      [formGroup]='searchForm' 
+      (ngSubmit)="onSubmit()">
+        <div id="radioContainer">
+            <label class="radio-inline"><input type="radio"  name="miles" value="5" formControlName="miles">5mi</label>
+            <label class="radio-inline"><input type="radio" name="miles" value="10" formControlName="miles">10mi</label>
+            <label class="radio-inline"><input type="radio" name="miles" value="15" formControlName="miles">15mi</label>
+        </div>
+        <div id="searchInputContainer">
+          <input
+          id="searchInput"
+          class="form-control"
+          type="text"
+          formControlName="search"
+          ngx-google-places-autocomplete 
+          #placesRef="ngx-places" 
+          (onAddressChange)="handleAddressChange($event)"
+          required>
+          <button class=" btn btn-primary" type="submit">Search</button><br>
+        </div>
+      </form> -->
+      <button class="btn btn-dark" (click)="restart()">All Events</button>
+  </div>
+</div>
+
+
+
+
+

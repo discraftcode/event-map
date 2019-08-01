@@ -1,0 +1,92 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #CDB52F;
+}
+
+agm-map {
+  height: 80%; 
+  width: 80%;
+  background-color: #231F20;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 5px solid white;
+ 
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+@media only screen and (max-width: 714px) {
+
+  /* Controls Form Section and Button Size */
+  #inputsContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+  }
+  
+  form {
+    width: 100%;
+
+  }
+  
+  #radioContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8E8D91;
+    padding: 10px;
+  }
+  
+  .radio-inline {
+    padding: 0 20px;
+  }
+  
+  #searchInputContainer {
+    display: flex;
+    /* background-color: red; */
+  }
+
+}
+
+@media only screen and (min-width: 715px) {
+
+  /* Controls Form Section and Button Size */
+  #inputsContainer {
+    display:flex;
+    justify-content: center;
+    width: 50%;
+  }
+  
+  form {
+    width: 100%;
+  }
+  
+  #radioContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8E8D91;
+    padding: 10px;  
+  }
+  
+  .radio-inline {
+    padding: 0 20px;
+  }
+  
+  #searchInputContainer {
+    display: flex;
+    /* background-color: red; */
+  }
+}
+
+
